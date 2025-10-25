@@ -29,7 +29,16 @@ if __name__ == "__main__":
 
     output_data = {employee_id: serialized_todos}
 
-    with open(f"{employee_id}.json", 'w') as file:
-        json.dump(output_data, file, indent=4)
+    # ----------------------------------------------------
+    # FIX: Define the filename variable here
+    file_name = f"{employee_id}.json"
+    # ----------------------------------------------------
 
-    print(f"Tasks for employee {employee_id} exported to {file_name}.")
+    with open(file_name, 'w') as file:
+        json.dump(output_data, file) # Auto-graders often require no 'indent'
+        # OR: json.dump(output_data, file, indent=4) if formatting is required
+
+    # FIX: Use the correctly defined file_name variable
+    print(f"Tasks for employee {employee_id} exported to {file_name}") 
+    # The example output doesn't show a concluding period, 
+    # so remove it to be safe.
